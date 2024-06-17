@@ -1,0 +1,12 @@
+README.md
+setup.py
+package/__init__.py
+package/analysis.py
+package/data.py
+package/plotting.py
+package/utils.py
+tramoTDA.egg-info/PKG-INFO
+tramoTDA.egg-info/SOURCES.txt
+tramoTDA.egg-info/dependency_links.txt
+tramoTDA.egg-info/requires.txt
+tramoTDA.egg-info/top_level.txt

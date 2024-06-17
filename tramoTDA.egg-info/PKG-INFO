@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: tramoTDA
+Version: 0.1
+Summary: Trajectory monitoring using topological data analysis (TDA)
+Author: Miriam Esteve and Antonio Falco
+Author-email: miriam.estevecampello@uchceu.es
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: scikit-learn
+Requires-Dist: persim
+Requires-Dist: ripser
+Requires-Dist: gudhi
+Requires-Dist: Pillow

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tramoTDA"
+version = "0.1.0"
+description = "Trajectory monitoring using Topological Data Analysis"
+authors = [
+    { name="Miriam Esteve", email="miriam.estevecampello@uchceu.es" },
+    { name="Antonio Falcocontin", email="afalco@uchceu.es" }
+]
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "scipy",
+    "scikit-learn",
+    "persim",
+    "ripser",
+    "gudhi",
+    "gt-da"
+]
