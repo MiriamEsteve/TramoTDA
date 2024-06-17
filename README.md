@@ -98,6 +98,6 @@ create_flowchart()
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
-The TDA tutorial for inspiration on using Gudhi for barycenter calculations.
-The Scikit-learn library for providing powerful machine learning tools.
-A. Falco and M. Esteve thank the grant TED2021-129347B-C22 funded by Ministerio de Ciencia e Innovación/ Agencia Estatal de Investigación
+- The TDA tutorial for inspiration on using Gudhi for barycenter calculations.
+- The Scikit-learn library for providing powerful machine learning tools.
+- A. Falco and M. Esteve thank the grant TED2021-129347B-C22 funded by Ministerio de Ciencia e Innovación/ Agencia Estatal de Investigación
