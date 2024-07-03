@@ -3,6 +3,34 @@ import numpy as np
 from persim import plot_diagrams, PersistenceImager
 from PIL import Image
 
+def plot_trajectory_Brownian(data, filename):
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.plot(data[0])
+    ax.set_title('Brownian Motion')
+    plt.savefig(filename)
+    plt.close()
+
+def plot_trajectory_Levy(data, filename):
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.plot(data[0])
+    ax.set_title('Levy Flight')
+    plt.savefig(filename)
+    plt.close()
+
+def plot_trajectory_Spiral(data, filename):
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.plot(data[0][:, 0], data[0][:, 1])
+    ax.set_title('Spiral Trajectory')
+    plt.savefig(filename)
+    plt.close()
+
+def plot_trajectory_Circular(data, filename):
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.plot(data[0][:, 0], data[0][:, 1])
+    ax.set_title('Circular Trajectory')
+    plt.savefig(filename)
+    plt.close()
+
 def plot_trajectory_data(datas, filename):
     fig, ax = plt.subplots(figsize=(8, 6))
     for data, color, label in zip(datas, ['blue', 'green', 'red'], ['Trajectory 1', 'Trajectory 2', 'Trajectory 3']):
@@ -67,20 +95,34 @@ def plot_evaluation_and_refinement(report, filename):
 
 def create_flowchart():
     image_paths = [
-        ('1_Load_Trajectory_Data.png', '1. Load Trajectory Data: Start by loading trajectory data, which could include spatial coordinates and timestamps from sources like GPS or AIS systems.'),
-        ('2_Persistence_Diagrams.png', '2. Generate Persistence Diagrams: Transform the trajectory data into persistence diagrams, capturing topological features that persist across various scales of the data. This step involves mathematical computations to identify significant structures within the data.'),
-        ('3_Lifetime_Diagram.png', '3. Generate Lifetime Diagrams: Calculate and plot the lifetime of each feature in the persistence diagrams.'),
-        ('4_Persistence_Images.png', '4. Generate Persistence Images: Visualize the persistence diagrams as images.'),
-        ('5_Calculate_Barycenter.png', '5. Calculate Barycenter: Compute the barycenter of the persistence diagrams to find a representative summary of the data sets. This step helps in reducing complexity and summarizing the topological features.'),
-        ('6_Classification_Logistic_Regression.png', '6. Classification (Logistic Regression): Apply Logistic Regression to classify the trajectories based on the features derived from the persistence diagrams and their barycenters.'),
-        ('6_Classification_Support_Vector_Machine.png', '6. Classification (Support Vector Machine): Apply SVM to classify the trajectories based on the features derived from the persistence diagrams and their barycenters.'),
-        ('6_Classification_Random_Forest.png', '6. Classification (Random Forest): Apply Random Forest to classify the trajectories based on the features derived from the persistence diagrams and their barycenters.'),
-        ('6_Classification_Neural_Network.png', '6. Classification (Neural Network): Apply Neural Network to classify the trajectories based on the features derived from the persistence diagrams and their barycenters.'),
-        ('7_Evaluation_and_Refinement_Logistic_Regression.png', '7. Evaluation and Refinement (Logistic Regression): Assess the performance of the Logistic Regression model using metrics such as accuracy, precision, and recall. Refine the model based on the outcomes to improve classification results.'),
-        ('7_Evaluation_and_Refinement_Support_Vector_Machine.png', '7. Evaluation and Refinement (Support Vector Machine): Assess the performance of the SVM model using metrics such as accuracy, precision, and recall. Refine the model based on the outcomes to improve classification results.'),
-        ('7_Evaluation_and_Refinement_Random_Forest.png', '7. Evaluation and Refinement (Random Forest): Assess the performance of the Random Forest model using metrics such as accuracy, precision, and recall. Refine the model based on the outcomes to improve classification results.'),
-        ('7_Evaluation_and_Refinement_Neural_Network.png', '7. Evaluation and Refinement (Neural Network): Assess the performance of the Neural Network model using metrics such as accuracy, precision, and recall. Refine the model based on the outcomes to improve classification results.')
+        ('1_Load_Trajectory_Data.png', 
+        '1. Load Trajectory Data: Start by loading trajectory data, which could include spatial coordinates and timestamps from sources like GPS or AIS systems.'),
+        ('2_Persistence_Diagrams.png', 
+        '2. Generate Persistence Diagrams: Transform the trajectory data into persistence diagrams, capturing topological features that persist across various scales of the data. This step involves mathematical computations to identify significant structures within the data.'),
+        ('3_Lifetime_Diagram.png', 
+        '3. Generate Lifetime Diagrams: Calculate and plot the lifetime of each feature in the persistence diagrams to understand their persistence and significance over different scales.'),
+        ('4_Persistence_Images.png', 
+        '4. Generate Persistence Images: Visualize the persistence diagrams as images, providing a different perspective on the topological features.'),
+        ('5_Calculate_Barycenter.png', 
+        '5. Calculate Barycenter: Compute the barycenter of the persistence diagrams to find a representative summary of the data sets. This step helps in reducing complexity and summarizing the topological features.'),
+        ('6_Classification_Logistic_Regression.png', 
+        '6. Classification (Logistic Regression): Apply Logistic Regression to classify the trajectories based on the features derived from the persistence diagrams and their barycenters.'),
+        ('6_Classification_Support_Vector_Machine.png', 
+        '6. Classification (Support Vector Machine): Apply Support Vector Machine (SVM) to classify the trajectories based on the features derived from the persistence diagrams and their barycenters.'),
+        ('6_Classification_Random_Forest.png', 
+        '6. Classification (Random Forest): Apply Random Forest to classify the trajectories based on the features derived from the persistence diagrams and their barycenters.'),
+        ('6_Classification_Neural_Network.png', 
+        '6. Classification (Neural Network): Apply Neural Network to classify the trajectories based on the features derived from the persistence diagrams and their barycenters.'),
+        ('7_Evaluation_and_Refinement_Logistic_Regression.png', 
+        '7. Evaluation and Refinement (Logistic Regression): Assess the performance of the Logistic Regression model using metrics such as accuracy, precision, and recall. Refine the model based on the outcomes to improve classification results.'),
+        ('7_Evaluation_and_Refinement_Support_Vector_Machine.png', 
+        '7. Evaluation and Refinement (Support Vector Machine): Assess the performance of the SVM model using metrics such as accuracy, precision, and recall. Refine the model based on the outcomes to improve classification results.'),
+        ('7_Evaluation_and_Refinement_Random_Forest.png', 
+        '7. Evaluation and Refinement (Random Forest): Assess the performance of the Random Forest model using metrics such as accuracy, precision, and recall. Refine the model based on the outcomes to improve classification results.'),
+        ('7_Evaluation_and_Refinement_Neural_Network.png', 
+        '7. Evaluation and Refinement (Neural Network): Assess the performance of the Neural Network model using metrics such as accuracy, precision, and recall. Refine the model based on the outcomes to improve classification results.')
     ]
+
 
     fig, axs = plt.subplots(len(image_paths), 1, figsize=(10, 45))
     for i, (img_path, description) in enumerate(image_paths):

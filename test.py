@@ -1,5 +1,6 @@
 from tramoTDA.analysis import TrajectoryAnalysis
 from tramoTDA.plotting import (
+    plot_trajectory_Brownian, plot_trajectory_Levy, plot_trajectory_Spiral, plot_trajectory_Circular,
     plot_trajectory_data, plot_persistence_diagrams, plot_lifetime_diagrams, 
     plot_persistence_images, plot_classification, plot_evaluation_and_refinement, create_flowchart
 )
@@ -12,6 +13,7 @@ from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
 import ripser
+import matplotlib.pyplot as plt
 
 
 def main_all():
@@ -23,7 +25,17 @@ def main():
     analysis = TrajectoryAnalysis()
     
     # Step 1: Plot Trajectory Data
-    plot_trajectory_data(analysis.datas, '1_Load_Trajectory_Data.png')
+    data_gen = analysis.SimulatedTrajectoryData()
+    brownian_data = data_gen.brownian_motion()
+    levy_data = data_gen.levy_flight()
+    spiral_data = data_gen.spiral_trajectory()
+    circular_data = data_gen.circular_trajectory()
+
+    # Plotting example trajectories
+    plot_trajectory_Brownian(brownian_data, '1_Load_Trajectory_Brownian_Motion.png')
+    plot_trajectory_Levy(levy_data, '1_Load_Trajectory_Levy_Flight.png')
+    plot_trajectory_Spiral(spiral_data, '1_Load_Trajectory_Spiral.png')
+    plot_trajectory_Circular(circular_data, '1_Load_Trajectory_Circular.png')
     
     # Step 2: Generate Persistence Diagrams
     diagrams = generate_persistence_diagrams(analysis.datas)

@@ -30,7 +30,7 @@ cd tramoTDA
 Install the required dependencies using pip.
 
 ```bash
-pip install numpy matplotlib scipy scikit-learn persim ripser gudhi gt-da
+pip install numpy matplotlib scipy scikit-learn persim ripser gudhi giotto-tda POT
 ```
 ## Project Setup
 Ensure your directory structure looks like the above structure.
@@ -47,8 +47,22 @@ This will execute each step of the analysis independently and save the correspon
 
 #### Step 1: Plot Trajectory Data
 ```python
-plot_trajectory_data(analysis.datas, '1_Load_Trajectory_Data.png')
-```
+    # Initialize the TrajectoryAnalysis class
+    analysis = TrajectoryAnalysis()
+    
+    # Step 1: Plot Trajectory Data
+    data_gen = analysis.SimulatedTrajectoryData()
+    brownian_data = data_gen.brownian_motion()
+    levy_data = data_gen.levy_flight()
+    spiral_data = data_gen.spiral_trajectory()
+    circular_data = data_gen.circular_trajectory()
+
+    # Plotting example trajectories
+    plot_trajectory_Brownian(brownian_data, '1_Load_Trajectory_Brownian_Motion.png')
+    plot_trajectory_Levy(levy_data, '1_Load_Trajectory_Levy_Flight.png')
+    plot_trajectory_Spiral(spiral_data, '1_Load_Trajectory_Spiral.png')
+    plot_trajectory_Circular(circular_data, '1_Load_Trajectory_Circular.png')
+    ```
 
 #### Step 2: Generate Persistence Diagrams
 ```python
