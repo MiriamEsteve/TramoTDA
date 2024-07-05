@@ -1,4 +1,5 @@
 from tramoTDA.analysis import TrajectoryAnalysis
+from tramoTDA import SimulatedTrajectoryData
 from tramoTDA.plotting import (
     plot_trajectory_Brownian, plot_trajectory_Levy, plot_trajectory_Spiral, plot_trajectory_Circular,
     plot_trajectory_data, plot_persistence_diagrams, plot_lifetime_diagrams, 
@@ -15,17 +16,12 @@ from sklearn.neural_network import MLPClassifier
 import ripser
 import matplotlib.pyplot as plt
 
-
-def main_all():
-    analysis = TrajectoryAnalysis()
-    analysis.run_analysis()
-
 def main():
     # Initialize the TrajectoryAnalysis class
     analysis = TrajectoryAnalysis()
     
     # Step 1: Plot Trajectory Data
-    data_gen = analysis.SimulatedTrajectoryData()
+    data_gen = SimulatedTrajectoryData()
     brownian_data = data_gen.brownian_motion()
     levy_data = data_gen.levy_flight()
     spiral_data = data_gen.spiral_trajectory()

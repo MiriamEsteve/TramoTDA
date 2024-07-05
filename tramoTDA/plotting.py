@@ -125,12 +125,12 @@ def create_flowchart():
 
 
     fig, axs = plt.subplots(len(image_paths), 1, figsize=(10, 45))
+
     for i, (img_path, description) in enumerate(image_paths):
-        img = Image.open(img_path)
-        axs[i].imshow(img)
+        axs[i].imshow(Image.new('RGB', (10, 10), color='white'))
         axs[i].axis('off')
-        axs[i].text(0.5, -0.1, description, horizontalalignment='center', verticalalignment='top', transform=axs[i].transAxes, fontsize=12, wrap=True)
-    
+        axs[i].text(0.5, 0.5, description, horizontalalignment='center', verticalalignment='center', transform=axs[i].transAxes, fontsize=12, wrap=True)
+
     plt.tight_layout()
     plt.savefig('Flowchart_with_Descriptions.png')
     plt.show()
