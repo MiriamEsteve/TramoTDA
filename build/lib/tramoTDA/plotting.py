@@ -4,37 +4,67 @@ from persim import plot_diagrams, PersistenceImager
 from PIL import Image
 
 def plot_trajectories(data, title, filename):
-    """Plot multiple trajectories with a legend for each."""
+    """Plot multiple trajectories."""
     fig, ax = plt.subplots(figsize=(8, 6))
     
-    # Loop through each trajectory and assign a label
-    for index, trajectory in enumerate(data):
-        label = f'Trajectory {index + 1}'  # Creating a label for each trajectory
-        ax.plot(trajectory[:, 0], trajectory[:, 1], marker='o', linestyle='-', label=label)
+    for trajectory in data:
+        ax.plot(trajectory[:, 0], trajectory[:, 1], marker='o', linestyle='-')
 
     ax.set_title(title)
     ax.set_xlabel('X Coordinate')
     ax.set_ylabel('Y Coordinate')
-    ax.legend()  # This will display the legend using the labels defined
+    plt.savefig(filename)
+    plt.close()
+
+def plot_trajectory_Brownian(data, filename):
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.plot(data[0])
+    ax.set_title('Brownian Motion')
+    plt.savefig(filename)
+    plt.close()
+
+def plot_trajectory_Levy(data, filename):
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.plot(data[0])
+    ax.set_title('Levy Flight')
+    plt.savefig(filename)
+    plt.close()
+
+def plot_trajectory_Spiral(data, filename):
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.plot(data[0][:, 0], data[0][:, 1])
+    ax.set_title('Spiral Trajectory')
+    plt.savefig(filename)
+    plt.close()
+
+def plot_trajectory_Circular(data, filename):
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.plot(data[0][:, 0], data[0][:, 1])
+    ax.set_title('Circular Trajectory')
+    plt.savefig(filename)
+    plt.close()
+
+def plot_trajectory_data(datas, filename):
+    fig, ax = plt.subplots(figsize=(8, 6))
+    for data, color, label in zip(datas, ['blue', 'green', 'red'], ['Trajectory 1', 'Trajectory 2', 'Trajectory 3']):
+        ax.plot(data[:, 0], data[:, 1], c=color, marker='o', linestyle='-', markersize=5, label=label)
+    ax.set_title("1. Load Trajectory Data")
+    ax.set_xlabel("X Coordinate")
+    ax.set_ylabel("Y Coordinate")
+    ax.legend()
+    ax.axis('equal')
     plt.savefig(filename)
     plt.close()
 
 def plot_persistence_diagrams(diagrams, filename):
-    """Plot multiple persistence diagrams with a legend for each, for an unspecified number of diagrams."""
     fig, ax = plt.subplots(figsize=(8, 6))
-    
-    # Generate a color map that has as many colors as diagrams
-    colors = plt.cm.jet(np.linspace(0, 1, len(diagrams)))  # Uses a color map, can be changed to any other
-
-    # Loop through each diagram and assign colors and labels dynamically
-    for index, (diagram, color) in enumerate(zip(diagrams, colors)):
-        label = f'Trajectory {index + 1}'  # Generating labels dynamically
-        ax.scatter(diagram[:, 0], diagram[:, 1], color=color, label=label)  # Plot each diagram with a unique color
-
-    ax.legend()  # This will display the legend using the labels defined
-    ax.set_title("Persistence Diagrams")
-    ax.set_xlabel('Birth')  # Typically the x-axis represents the birth time
-    ax.set_ylabel('Death')  # Typically the y-axis represents the death time
+    colors = ['blue', 'green', 'red']
+    labels = ['Trajectory 1', 'Trajectory 2', 'Trajectory 3']
+    for diagram, color, label in zip(diagrams, colors, labels):
+        plot_diagrams(diagram[0], ax=ax)
+    handles = [plt.Line2D([], [], color=color, marker='o', linestyle='', markersize=10, label=label) for color, label in zip(colors, labels)]
+    ax.legend(handles=handles)
+    ax.set_title("2. Generate Persistence Diagrams")
     plt.savefig(filename)
     plt.close()
 

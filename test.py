@@ -1,8 +1,7 @@
 from tramoTDA.analysis import TrajectoryAnalysis
-from tramoTDA import SimulatedTrajectoryData
+from tramoTDA.data import SimulatedTrajectoryData
 from tramoTDA.plotting import (
-    plot_trajectory_Brownian, plot_trajectory_Levy, plot_trajectory_Spiral, plot_trajectory_Circular,
-    plot_trajectory_data, plot_persistence_diagrams, plot_lifetime_diagrams, 
+    plot_trajectories, plot_persistence_diagrams, plot_lifetime_diagrams, 
     plot_persistence_images, plot_classification, plot_evaluation_and_refinement, create_flowchart
 )
 from tramoTDA.utils import (
@@ -28,10 +27,10 @@ def main():
     circular_data = data_gen.circular_trajectory()
 
     # Plotting example trajectories
-    plot_trajectory_Brownian(brownian_data, '1_Load_Trajectory_Brownian_Motion.png')
-    plot_trajectory_Levy(levy_data, '1_Load_Trajectory_Levy_Flight.png')
-    plot_trajectory_Spiral(spiral_data, '1_Load_Trajectory_Spiral.png')
-    plot_trajectory_Circular(circular_data, '1_Load_Trajectory_Circular.png')
+    plot_trajectories(brownian_data, 'Trajectory_Brownian_Motion', '1_Load_Trajectory_Brownian_Motion.png')
+    plot_trajectories(levy_data, 'Trajectory_Levy_Flight', '1_Load_Trajectory_Levy_Flight.png')
+    plot_trajectories(spiral_data, 'Trajectory_Spiral', '1_Load_Trajectory_Spiral.png')
+    plot_trajectories(circular_data, 'Trajectory_Circular', '1_Load_Trajectory_Circular.png')
     
     # Step 2: Generate Persistence Diagrams
     diagrams = generate_persistence_diagrams(analysis.datas)

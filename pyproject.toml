@@ -18,5 +18,5 @@ dependencies = [
     "persim",
     "ripser",
     "gudhi",
-    "gt-da"
+    "giotto-tda"
 ]

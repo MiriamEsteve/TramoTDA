@@ -5,4 +5,4 @@ scikit-learn
 persim
 ripser
 gudhi
-Pillow
+giotto-tda
