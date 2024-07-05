@@ -1,5 +1,5 @@
 import numpy as np
-from .data import simulate_trajectory_data
+from .data import SimulatedTrajectoryData
 from .plotting import (
     plot_trajectory_data, plot_persistence_diagrams, plot_lifetime_diagrams, 
     plot_persistence_images, plot_classification, plot_evaluation_and_refinement, create_flowchart
@@ -12,13 +12,12 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
-import ripser
 
 class TrajectoryAnalysis:
-    def __init__(self, num_points=100, num_trajectories=3):
-        self.num_points = num_points
+    def __init__(self, num_trajectories=10, num_steps=100, data=SimulatedTrajectoryData(10, 100).simulate_trajectory_data()):
         self.num_trajectories = num_trajectories
-        self.datas = simulate_trajectory_data(num_points, num_trajectories)
+        self.num_steps = num_steps
+        self.datas = data
 
     def run_analysis(self):
         plot_trajectory_data(self.datas, '1_Load_Trajectory_Data.png')
@@ -36,10 +35,10 @@ class TrajectoryAnalysis:
         compute_gudhi_barycenter(diagrams_h1, '5_Calculate_Barycenter.png')
 
         classifiers = {
-            'Logistic Regression': LogisticRegression(max_iter=1000),
+            'Logistic Regression': LogisticRegression(),
             'Support Vector Machine': SVC(),
             'Random Forest': RandomForestClassifier(),
-            'Neural Network': MLPClassifier(max_iter=2000)  # Increased max_iter to 2000
+            'Neural Network': MLPClassifier()
         }
         
         for name, clf in classifiers.items():
