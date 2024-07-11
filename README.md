@@ -47,25 +47,26 @@ This will execute each step of the analysis independently and save the correspon
 
 #### Step 1: Plot Trajectory Data
 ```python
-    # Initialize the TrajectoryAnalysis class
-    analysis = TrajectoryAnalysis()
     
     # Step 1: Plot Trajectory Data
-    data_gen = analysis.SimulatedTrajectoryData()
+    data_gen = SimulatedTrajectoryData()
     brownian_data = data_gen.brownian_motion()
     levy_data = data_gen.levy_flight()
     spiral_data = data_gen.spiral_trajectory()
     circular_data = data_gen.circular_trajectory()
 
     # Plotting example trajectories
-    plot_trajectory_Brownian(brownian_data, '1_Load_Trajectory_Brownian_Motion.png')
-    plot_trajectory_Levy(levy_data, '1_Load_Trajectory_Levy_Flight.png')
-    plot_trajectory_Spiral(spiral_data, '1_Load_Trajectory_Spiral.png')
-    plot_trajectory_Circular(circular_data, '1_Load_Trajectory_Circular.png')
+    plot_trajectories(brownian_data, 'Trajectory_Brownian_Motion', '1_Load_Trajectory_Brownian_Motion.png')
+    plot_trajectories(levy_data, 'Trajectory_Levy_Flight', '1_Load_Trajectory_Levy_Flight.png')
+    plot_trajectories(spiral_data, 'Trajectory_Spiral', '1_Load_Trajectory_Spiral.png')
+    plot_trajectories(circular_data, 'Trajectory_Circular', '1_Load_Trajectory_Circular.png')
     ```
 
 #### Step 2: Generate Persistence Diagrams
 ```python
+# Initialize the TrajectoryAnalysis class
+analysis = TrajectoryAnalysis()
+    
 diagrams = generate_persistence_diagrams(analysis.datas)
 plot_persistence_diagrams(diagrams, '2_Persistence_Diagrams.png')
 ```
@@ -99,8 +100,9 @@ classifiers = {
 
 for name, clf in classifiers.items():
     X, y, report = perform_classification(clf)
-    plot_classification(X, y, f'6_Classification_{name.replace(" ", "_")}.png')
-    plot_evaluation_and_refinement(report, f'7_Evaluation_and_Refinement_{name.replace(" ", "_")}.png')
+    plot_classification(X, y, f'6_Classification_{name.replace(" ", "_")}.png', name)
+    plot_evaluation_and_refinement(report, f'7_Evaluation_and_Refinement_{name.replace(" ", "_")}.png', name)
+
 ```
 
 #### Step 7: Create Flowchart

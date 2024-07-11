@@ -16,9 +16,6 @@ import ripser
 import matplotlib.pyplot as plt
 
 def main():
-    # Initialize the TrajectoryAnalysis class
-    analysis = TrajectoryAnalysis()
-    
     # Step 1: Plot Trajectory Data
     data_gen = SimulatedTrajectoryData()
     brownian_data = data_gen.brownian_motion()
@@ -32,6 +29,10 @@ def main():
     plot_trajectories(spiral_data, 'Trajectory_Spiral', '1_Load_Trajectory_Spiral.png')
     plot_trajectories(circular_data, 'Trajectory_Circular', '1_Load_Trajectory_Circular.png')
     
+    # Initialize the TrajectoryAnalysis class
+    analysis = TrajectoryAnalysis()
+    analysis.datas = data_gen.simulate_trajectory_data()
+
     # Step 2: Generate Persistence Diagrams
     diagrams = generate_persistence_diagrams(analysis.datas)
     plot_persistence_diagrams(diagrams, '2_Persistence_Diagrams.png')
@@ -58,8 +59,8 @@ def main():
     
     for name, clf in classifiers.items():
         X, y, report = perform_classification(clf)
-        plot_classification(X, y, f'6_Classification_{name.replace(" ", "_")}.png')
-        plot_evaluation_and_refinement(report, f'7_Evaluation_and_Refinement_{name.replace(" ", "_")}.png')
+        plot_classification(X, y, f'6_Classification_{name.replace(" ", "_")}.png', name)
+        plot_evaluation_and_refinement(report, f'7_Evaluation_and_Refinement_{name.replace(" ", "_")}.png', name)
 
     # Step 7: Create Flowchart
     create_flowchart()
