@@ -126,11 +126,54 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 `tramoTDA` includes a robust module for generating simulated trajectory data. This is particularly useful for testing and validating TDA processes under controlled conditions. The module can simulate a variety of trajectory patterns, ensuring comprehensive evaluation of the software's analytical capabilities. The generated data serves as a consistent and reliable basis for demonstrating the functionality and effectiveness of \textit{tramoTDA} in various application scenarios.
 The module generates four types of trajectory patterns: Brownian motion, Lévy flight, spiral trajectories, and circular trajectories. These patterns are chosen for their relevance in different scientific domains.
 
-### Brownian Motion
+Brownian Motion
 Brownian motion, also known as a random walk, models the random movement of particles. This process is defined mathematically by the equation:
 
-\[ 
-X(t + \Delta t) = X(t) + \sqrt{2D\Delta t} \cdot N(0,1) 
-\]
-
-where \(X(t)\) is the position at time \(t\), \(D\) is the diffusion coefficient, \(\Delta t\) is the time step, and \(N(0,1)\) is a standard normal variable.
+𝑋
+(
+𝑡
++
+Δ
+𝑡
+)
+=
+𝑋
+(
+𝑡
+)
++
+2
+𝐷
+Δ
+𝑡
+⋅
+𝑁
+(
+0
+,
+1
+)
+X(t+Δt)=X(t)+ 
+2DΔt
+​
+ ⋅N(0,1)
+where 
+𝑋
+(
+𝑡
+)
+X(t) is the position at time 
+𝑡
+t, 
+𝐷
+D is the diffusion coefficient, 
+Δ
+𝑡
+Δt is the time step, and 
+𝑁
+(
+0
+,
+1
+)
+N(0,1) is a standard normal variable.
