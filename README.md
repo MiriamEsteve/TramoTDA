@@ -128,7 +128,9 @@ The module generates four types of trajectory patterns: Brownian motion, Lévy f
 
 ### Brownian Motion
 Brownian motion, also known as a random walk, models the random movement of particles. This process is defined mathematically by the equation:
-\[
-X(t + \Delta t) = X(t) + \sqrt{2D\Delta t} \cdot N(0,1)
+
+\[ 
+X(t + \Delta t) = X(t) + \sqrt{2D\Delta t} \cdot N(0,1) 
 \]
+
 where \(X(t)\) is the position at time \(t\), \(D\) is the diffusion coefficient, \(\Delta t\) is the time step, and \(N(0,1)\) is a standard normal variable.
