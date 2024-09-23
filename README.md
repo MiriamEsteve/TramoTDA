@@ -7,13 +7,14 @@ TramoTDA is a Python package designed for trajectory analysis using Topological 
 TramoTDA/
 ├── repo/
 │   ├── src/
-│   │   ├── tramoTDA/
-│   │   │   ├── __init__.py
-│   │   │   ├── analysis.py
-│   │   │   ├── data.py
-│   │   │   ├── plotting.py
-│   │   │   └── utils.py
+│   │   ├── __init__.py
+│   │   ├── analysis.py
+│   │   ├── data.py
+│   │   ├── plotting.py
+│   │   └── utils.py
 │   │   └── main.py
+│   ├── test/
+│   │   ├── test.py
 ├── pyproject.toml
 └── README.md  
 ├── LICENSE
