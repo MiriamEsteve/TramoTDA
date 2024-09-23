@@ -4,7 +4,7 @@ TramoTDA is a Python package designed for trajectory analysis using Topological 
 
 ## Project Structure
 ```
-project/
+TramoTDA/
 ├── repo/
 │   ├── src/
 │   │   ├── tramoTDA/
