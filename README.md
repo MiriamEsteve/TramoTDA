@@ -3,6 +3,7 @@
 TramoTDA is a Python package designed for trajectory analysis using Topological Data Analysis (TDA). This package includes functionalities for generating, visualizing, and classifying trajectory data, as well as creating persistence diagrams, lifetime diagrams, and persistence images.
 
 ## Project Structure
+```
 project/
 ├── repo/
 │   ├── src/
@@ -16,6 +17,7 @@ project/
 ├── pyproject.toml
 └── README.md  
 ├── LICENSE
+```
 
 ### File Descriptions
 
