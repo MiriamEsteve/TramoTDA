@@ -4,14 +4,45 @@ TramoTDA is a Python package designed for trajectory analysis using Topological 
 
 ## Project Structure
 project/
-├── tramoTDA/
-│ ├── init.py
-│ ├── analysis.py
-│ ├── data.py
-│ ├── plotting.py
-│ └── utils.py
+├── repo/
+│   ├── src/
+│   │   ├── tramoTDA/
+│   │   │   ├── __init__.py
+│   │   │   ├── analysis.py
+│   │   │   ├── data.py
+│   │   │   ├── plotting.py
+│   │   │   └── utils.py
+│   │   └── main.py
 ├── pyproject.toml
-└── main.py
+└── README.md  
+├── LICENSE
+
+### File Descriptions
+
+- **LICENSE**: Contains the legal terms under which the project is licensed, outlining permissions and restrictions for use and distribution.
+
+- **repo/**: Directory containing all the source code and relevant files for the project.
+
+  - **src/**: Main source code directory.
+  
+    - **tramoTDA/**: Core functionality package.
+    
+      - **`__init__.py`**: Marks the directory as a Python package.
+      
+      - **`analysis.py`**: Implements data analysis methods.
+      
+      - **`data.py`**: Loads and processes data.
+      
+      - **`plotting.py`**: Contains functions for visualizations.
+      
+      - **`utils.py`**: Utility functions for various tasks.
+      
+    - **`main.py`**: Entry point for executing the project.
+
+- **pyproject.toml**: Configuration file for project metadata, dependencies, and build system requirements.
+
+- **README.md**: Overview and documentation for the project, including installation and usage instructions.
+
 
 ## Installation
 
