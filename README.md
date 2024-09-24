@@ -15,6 +15,7 @@ TramoTDA/
 │   │   └── main.py
 │   ├── test/
 │   │   ├── test.py
+│   │   ├── Figures
 ├── pyproject.toml
 └── README.md  
 ├── LICENSE
